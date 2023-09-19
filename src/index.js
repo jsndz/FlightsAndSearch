@@ -20,10 +20,7 @@ const setupAndstartserver = async () =>
         //     db.sequelize.sync({alter:true});
            
         // }
-        await Airplane.create({
-            modelNumber: 'BlackStar'
-        })
-       
+        
     })
 }
 setupAndstartserver();
