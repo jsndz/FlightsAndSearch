@@ -5,7 +5,7 @@ const Apiroutes = require('./routes/index')
 const db = require('./models/index')
 const City = require('./models/city')
 const Airport = require('./models/airport')
-
+const {Airplane} = require('./models/index')
 const setupAndstartserver = async () =>
 {
     const app = express();
@@ -20,6 +20,9 @@ const setupAndstartserver = async () =>
         //     db.sequelize.sync({alter:true});
            
         // }
+        await Airplane.create({
+            modelNumber: 'BlackStar'
+        })
        
     })
 }
