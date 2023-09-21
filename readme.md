@@ -23,3 +23,19 @@ use '`npx sequalize db:create`
 -flight 
 -airport
 -city
+
+
+## tables
+1. city
+-cityname
+-id
+-created_at
+-updated_at
+1:N
+2.Airport
+-name
+-cityId
+-address
+-id
+-created_at
+-updated_at
