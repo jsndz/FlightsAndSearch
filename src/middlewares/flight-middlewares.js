@@ -1,3 +1,5 @@
+const { ClientErrorCodes} = require('../utils/error-codes')
+
 const validateCreateFlight = (req,res,next) => {
     if(req.body.flightNumber || 
         req.body.airplaneId ||
@@ -8,7 +10,7 @@ const validateCreateFlight = (req,res,next) => {
         req.body.price 
         )
         {
-            return res.status(400).json({
+            return res.status(ClientErrorCodes.Bad_Request).json({
                 data: {},
                 sucess: false,
                 message: 'Invalid request body for create flight',
