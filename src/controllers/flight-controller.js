@@ -52,14 +52,54 @@ const getAll = async (req, res) => {
             err:{error}
        })
     }
-
-
 }
+
+const get = async (req,res)=>{
+    try {
+        const response = await flightService.getFlight(req.params.id);
+        return res.status(successCodes.OK).json({
+            data: response,
+            success: true,
+            err: {},
+            message: 'Successfully got flight'
+        })
+    } catch (error) {
+       console.log(error); 
+       return res.status(500).json({
+            data: {},
+            sucess: false,
+            message: 'couldnt get flight',
+            err:{error}
+       })
+    }
+} 
+
+const update = async (req,res)=>{
+    try {
+        const response = await flightService.updateFlight(req.params.id,req.body);
+        return res.status(successCodes.OK).json({
+            data: response,
+            success: true,
+            err: {},
+            message: 'Successfully updated flight'
+        })
+    } catch (error) {
+       console.log(error); 
+       return res.status(500).json({
+            data: {},
+            sucess: false,
+            message: 'couldnt updated flight',
+            err:{error}
+       })
+    }
+} 
 
 
 
 
 module.exports ={
     create,
-    getAll
+    getAll,
+    get,
+    update
 }
